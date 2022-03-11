@@ -4,8 +4,15 @@ import './ListSales.css'
 
 function ListSales() {
   return (
-    <div>
+    <div className='container--sales'>
       <Sale/>
+      {/* <Sale/>
+      <Sale/>
+      <Sale/>
+      <Sale/>
+      <Sale/>
+      <Sale/>
+      <Sale/> */}
     </div>
   )
 }
