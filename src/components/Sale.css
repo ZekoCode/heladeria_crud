@@ -1,0 +1,43 @@
+.sale{
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 25px;
+    padding: 15px 20px;
+    box-shadow: 8px 10px;
+    margin: 15px 0;
+    display: flex;
+}
+
+.sale--info{
+    /* background-color: aquamarine; */
+    width: 70%;
+}
+
+.sale--info>p{
+    text-indent: 20px;
+}
+
+.sale--action{
+    /* background-color: blueviolet; */
+    width: 30%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.sale--action__button{
+    border-radius: 25px;
+    padding: 5px 0;
+}
+
+.sale--action__delete{
+    background-color: red;
+    color: white;
+}
+
+.sale--action__edit{
+    background-color: green;
+    color: white;
+}

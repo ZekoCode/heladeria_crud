@@ -6,13 +6,13 @@ function ListSales() {
   return (
     <div className='container--sales'>
       <Sale/>
-      {/* <Sale/>
       <Sale/>
       <Sale/>
       <Sale/>
       <Sale/>
       <Sale/>
-      <Sale/> */}
+      <Sale/>
+      <Sale/>
     </div>
   )
 }
