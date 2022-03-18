@@ -3,6 +3,8 @@ import "./Form.css";
 import Sale from './Sale'
 import db from "../firebase.config";
 import { collection, addDoc,getDocs,doc,deleteDoc, updateDoc} from "firebase/firestore";
+import logo from '../assets/icon.webp'
+
 
 function Form() {
   const [sale, setSale] = useState({
@@ -64,7 +66,7 @@ function Form() {
 
   const deleteItem=(id)=>{
     if (window.confirm("Seguro que quieres eliminar este elemento?")===true) {
-       try {
+      try {
       deleteDoc(doc(db,"sales",id))
     .then(()=>{
       // console.log("This items has deleted "+id)
@@ -75,7 +77,7 @@ function Form() {
       console.error(error)
     }
     }
-   
+  
   }
 
   const editItem=(id,categorie,flavor,price, quantity, total)=>{
@@ -109,6 +111,7 @@ function Form() {
     <>
       <div className="container--form" onSubmit={saveData}>
         <form className="form">
+          <img className="form--logo" src={logo} alt="logo"/>
           <label className="form--label">Productos</label>
           <select
             className="form--selectInput"
@@ -116,8 +119,9 @@ function Form() {
             name="categorie"
             value={sale.categorie}
             onChange={handleInputChange}
+            
           >
-            <option value=""></option>
+            <option value="">Escoje un producto...</option>
             <option value="torta">Torta</option>
             <option value="sandwitch">Sandwitch</option>
             <option value="paleta_helada">Paleta helada</option>
@@ -132,7 +136,7 @@ function Form() {
             value={sale.flavor}
             onChange={handleInputChange}
           >
-            <option value=""></option>
+            <option value="">Escoje un sabor...</option>
             <option value="chocolate">Chocolate</option>
             <option value="vainilla">Vainilla</option>
             <option value="menta">Menta</option>
@@ -162,16 +166,16 @@ function Form() {
             onChange={handleInputChange}
           />
 
-          {sale.categorie === "" ||
-          sale.flavor === "" ||
-          sale.price === 0 ||
-          sale.quantity === 0 ? (
-            <button className="form--submitInput disableInput" disabled>
-              Enviar
-            </button>
-          ) : (
-            <input className="form--submitInput" type="submit" value="Enviar" />
-          )}
+          {
+          sale.categorie === "" || sale.flavor === "" || sale.price === 0 || sale.quantity === 0 ? 
+            (
+              <button className="form--submitInput disableInput" disabled>
+                Enviar
+              </button>
+            ) : (
+              <input className="form--submitInput" type="submit" value="Enviar" />
+            )
+          }
         </form>
       </div>
 
@@ -179,7 +183,7 @@ function Form() {
       {
         list.map((element)=>(
           <Sale key={element.id} id={element.id} categorie={element.categorie} flavor={element.flavor} price={element.price} quantity={element.quantity} deleteItem={deleteItem} total={element.total} editItem={editItem}
-           />
+          />
         ))
           // console.log(list)
       }
