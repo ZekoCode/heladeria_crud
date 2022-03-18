@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Form.css";
 import Sale from './Sale'
-import db from "../firebase.config";
+import db from "../.firebase.config";
 import { collection, addDoc,getDocs,doc,deleteDoc, updateDoc} from "firebase/firestore";
 import logo from '../assets/icon.webp'
 
