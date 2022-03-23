@@ -136,7 +136,8 @@ function Form() {
             value={sale.flavor}
             onChange={handleInputChange}
           >
-            <option value="">Escoje un sabor...</option>
+            
+            <option value="">Elije tu sabor</option>
             <option value="chocolate">Chocolate</option>
             <option value="vainilla">Vainilla</option>
             <option value="menta">Menta</option>
